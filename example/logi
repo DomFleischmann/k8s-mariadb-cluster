@@ -1,0 +1,381 @@
+2019/06/17 09:33:44 Peer list updated
+was []
+now [mysql-0.galera.default.svc.cluster.local]
+2019/06/17 09:33:44 execing: /opt/galera/on-start.sh with stdin: mysql-0.galera.default.svc.cluster.local
+2019/06/17 09:33:44 *** [Galera] Starting new cluster!
+2019/06/17 09:33:45 Peer finder exiting
+Initializing database
+
+
+PLEASE REMEMBER TO SET A PASSWORD FOR THE MariaDB root USER !
+To do so, start the server, then issue the following commands:
+
+'/usr/bin/mysqladmin' -u root password 'new-password'
+'/usr/bin/mysqladmin' -u root -h mysql-0 password 'new-password'
+
+Alternatively you can run:
+'/usr/bin/mysql_secure_installation'
+
+which will also give you the option of removing the test
+databases and anonymous user created by default.  This is
+strongly recommended for production servers.
+
+See the MariaDB Knowledgebase at http://mariadb.com/kb or the
+MySQL manual for more instructions.
+
+Please report any problems at http://mariadb.org/jira
+
+The latest information about MariaDB is available at http://mariadb.org/.
+You can find additional information about the MySQL part at:
+http://dev.mysql.com
+Consider joining MariaDB's strong and vibrant community:
+https://mariadb.org/get-involved/
+
+Database initialized
+MySQL init process in progress...
+2019-06-17  9:33:50 0 [Note] mysqld (mysqld 10.3.15-MariaDB-1:10.3.15+maria~bionic) starting as process 110 ...
+2019-06-17  9:33:50 0 [Note] WSREP: Read nil XID from storage engines, skipping position init
+2019-06-17  9:33:50 0 [Note] WSREP: wsrep_load(): loading provider library '/usr/lib/galera/libgalera_smm.so'
+2019-06-17  9:33:50 0 [Note] WSREP: wsrep_load(): Galera 25.3.26(r3857) by Codership Oy <info@codership.com> loaded successfully.
+2019-06-17  9:33:50 0 [Note] WSREP: CRC-32C: using hardware acceleration.
+2019-06-17  9:33:50 0 [Warning] WSREP: Could not open state file for reading: '/var/lib/mysql//grastate.dat'
+2019-06-17  9:33:50 0 [Note] WSREP: Found saved state: 00000000-0000-0000-0000-000000000000:-1, safe_to_bootstrap: 1
+2019-06-17  9:33:50 0 [Note] WSREP: Passing config to GCS: base_dir = /var/lib/mysql/; base_host = mysql-0.galera.default.svc.cluster.local; base_port = 4567; cert.log_conflicts = no; cert.optimistic_pa = yes; debug = no; evs.auto_evict = 0; evs.delay_margin = PT1S; evs.delayed_keep_period = PT30S; evs.inactive_check_period = PT0.5S; evs.inactive_timeout = PT15S; evs.join_retrans_period = PT1S; evs.max_install_timeouts = 3; evs.send_window = 4; evs.stats_report_period = PT1M; evs.suspect_timeout = PT5S; evs.user_send_window = 2; evs.view_forget_timeout = PT24H; gcache.dir = /var/lib/mysql/; gcache.keep_pages_size = 0; gcache.mem_size = 0; gcache.name = /var/lib/mysql//galera.cache; gcache.page_size = 128M; gcache.recover = no; gcache.size = 128M; gcomm.thread_prio = ; gcs.fc_debug = 0; gcs.fc_factor = 1.0; gcs.fc_limit = 16; gcs.fc_master_slave = no; gcs.max_packet_size = 64500; gcs.max_throttle = 0.25; gcs.recv_q_hard_limit = 9223372036854775807; gcs.recv_q_soft_limit = 0.25; gcs.sync_donor = no; gmcast.segment = 0; gmcast.version = 0;
+2019-06-17  9:33:50 0 [Note] WSREP: GCache history reset: 00000000-0000-0000-0000-000000000000:0 -> 00000000-0000-0000-0000-000000000000:-1
+2019-06-17  9:33:51 0 [Note] WSREP: Assign initial position for certification: -1, protocol version: -1
+2019-06-17  9:33:51 0 [Note] WSREP: wsrep_sst_grab()
+2019-06-17  9:33:51 0 [Note] WSREP: Start replication
+2019-06-17  9:33:51 0 [Note] WSREP: Setting initial position to 00000000-0000-0000-0000-000000000000:-1
+2019-06-17  9:33:51 0 [Note] WSREP: protonet asio version 0
+2019-06-17  9:33:51 0 [Note] WSREP: Using CRC-32C for message checksums.
+2019-06-17  9:33:51 0 [Note] WSREP: backend: asio
+2019-06-17  9:33:51 0 [Note] WSREP: gcomm thread scheduling priority set to other:0 
+2019-06-17  9:33:51 0 [Warning] WSREP: access file(/var/lib/mysql//gvwstate.dat) failed(No such file or directory)
+2019-06-17  9:33:51 0 [Note] WSREP: restore pc from disk failed
+2019-06-17  9:33:51 0 [Note] WSREP: GMCast version 0
+2019-06-17  9:33:51 0 [Note] WSREP: (03f70327, 'tcp://0.0.0.0:4567') listening at tcp://0.0.0.0:4567
+2019-06-17  9:33:51 0 [Note] WSREP: (03f70327, 'tcp://0.0.0.0:4567') multicast: , ttl: 1
+2019-06-17  9:33:51 0 [Note] WSREP: EVS version 0
+2019-06-17  9:33:51 0 [Note] WSREP: gcomm: connecting to group 'mysql', peer ''
+2019-06-17  9:33:51 0 [Note] WSREP: start_prim is enabled, turn off pc_recovery
+2019-06-17  9:33:51 0 [Note] WSREP: Node 03f70327 state prim
+2019-06-17  9:33:51 0 [Note] WSREP: view(view_id(PRIM,03f70327,1) memb {
+	03f70327,0
+} joined {
+} left {
+} partitioned {
+})
+2019-06-17  9:33:51 0 [Note] WSREP: save pc into disk
+2019-06-17  9:33:51 0 [Note] WSREP: gcomm: connected
+2019-06-17  9:33:51 0 [Note] WSREP: Changing maximum packet size to 64500, resulting msg size: 32636
+2019-06-17  9:33:51 0 [Note] WSREP: Shifting CLOSED -> OPEN (TO: 0)
+2019-06-17  9:33:51 0 [Note] WSREP: Opened channel 'mysql'
+2019-06-17  9:33:51 0 [Note] WSREP: New COMPONENT: primary = yes, bootstrap = no, my_idx = 0, memb_num = 1
+2019-06-17  9:33:51 0 [Note] WSREP: Waiting for SST to complete.
+2019-06-17  9:33:51 0 [Note] WSREP: Starting new group from scratch: 03f79507-90e3-11e9-b74f-ef7c2b1d0325
+2019-06-17  9:33:51 0 [Note] WSREP: STATE_EXCHANGE: sent state UUID: 03f796ef-90e3-11e9-a203-6ac899608d39
+2019-06-17  9:33:51 0 [Note] WSREP: STATE EXCHANGE: sent state msg: 03f796ef-90e3-11e9-a203-6ac899608d39
+2019-06-17  9:33:51 0 [Note] WSREP: STATE EXCHANGE: got state msg: 03f796ef-90e3-11e9-a203-6ac899608d39 from 0 (mysql-0)
+2019-06-17  9:33:51 0 [Note] WSREP: Quorum results:
+	version    = 4,
+	component  = PRIMARY,
+	conf_id    = 0,
+	members    = 1/1 (joined/total),
+	act_id     = 0,
+	last_appl. = -1,
+	protocols  = 0/9/3 (gcs/repl/appl),
+	group UUID = 03f79507-90e3-11e9-b74f-ef7c2b1d0325
+2019-06-17  9:33:51 0 [Note] WSREP: Flow-control interval: [16, 16]
+2019-06-17  9:33:51 0 [Note] WSREP: Trying to continue unpaused monitor
+2019-06-17  9:33:51 0 [Note] WSREP: Restored state OPEN -> JOINED (0)
+2019-06-17  9:33:51 0 [Note] WSREP: Member 0.0 (mysql-0) synced with group.
+2019-06-17  9:33:51 0 [Note] WSREP: Shifting JOINED -> SYNCED (TO: 0)
+2019-06-17  9:33:51 2 [Note] WSREP: New cluster view: global state: 03f79507-90e3-11e9-b74f-ef7c2b1d0325:0, view# 1: Primary, number of nodes: 1, my index: 0, protocol version 3
+2019-06-17  9:33:51 0 [Note] WSREP: SST complete, seqno: 0
+2019-06-17  9:33:51 0 [Note] InnoDB: Using Linux native AIO
+2019-06-17  9:33:51 0 [Note] InnoDB: Mutexes and rw_locks use GCC atomic builtins
+2019-06-17  9:33:51 0 [Note] InnoDB: Uses event mutexes
+2019-06-17  9:33:51 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2019-06-17  9:33:51 0 [Note] InnoDB: Number of pools: 1
+2019-06-17  9:33:51 0 [Note] InnoDB: Using SSE2 crc32 instructions
+2019-06-17  9:33:51 0 [Note] InnoDB: Initializing buffer pool, total size = 256M, instances = 1, chunk size = 128M
+2019-06-17  9:33:51 0 [Note] InnoDB: Completed initialization of buffer pool
+2019-06-17  9:33:51 0 [Note] InnoDB: If the mysqld execution user is authorized, page cleaner thread priority can be changed. See the man page of setpriority().
+2019-06-17  9:33:51 0 [Note] InnoDB: 128 out of 128 rollback segments are active.
+2019-06-17  9:33:51 0 [Note] InnoDB: Creating shared tablespace for temporary tables
+2019-06-17  9:33:51 0 [Note] InnoDB: Setting file './ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
+2019-06-17  9:33:51 0 [Note] InnoDB: File './ibtmp1' size is now 12 MB.
+2019-06-17  9:33:51 0 [Note] InnoDB: Waiting for purge to start
+2019-06-17  9:33:51 0 [Note] InnoDB: 10.3.15 started; log sequence number 1630824; transaction id 21
+2019-06-17  9:33:51 0 [Note] InnoDB: Loading buffer pool(s) from /var/lib/mysql/ib_buffer_pool
+2019-06-17  9:33:51 0 [Note] Plugin 'FEEDBACK' is disabled.
+2019-06-17  9:33:51 0 [Note] InnoDB: Buffer pool(s) load completed at 190617  9:33:51
+2019-06-17  9:33:51 0 [Note] Reading of all Master_info entries succeded
+2019-06-17  9:33:51 0 [Note] Added new Master_info '' to hash table
+2019-06-17  9:33:51 2 [Note] WSREP: wsrep_notify_cmd is not defined, skipping notification.
+2019-06-17  9:33:51 0 [Note] mysqld: ready for connections.
+Version: '10.3.15-MariaDB-1:10.3.15+maria~bionic'  socket: '/var/run/mysqld/mysqld.sock'  port: 0  mariadb.org binary distribution
+2019-06-17  9:33:51 2 [Note] WSREP: REPL Protocols: 9 (4, 2)
+2019-06-17  9:33:51 2 [Note] WSREP: Assign initial position for certification: 0, protocol version: 4
+2019-06-17  9:33:51 0 [Note] WSREP: Service thread queue flushed.
+2019-06-17  9:33:51 2 [Note] WSREP: GCache history reset: 00000000-0000-0000-0000-000000000000:0 -> 03f79507-90e3-11e9-b74f-ef7c2b1d0325:0
+2019-06-17  9:33:51 2 [Note] WSREP: Synchronized with group, ready for connections
+2019-06-17  9:33:51 2 [Note] WSREP: wsrep_notify_cmd is not defined, skipping notification.
+2019-06-17  9:34:04 12 [Warning] Access denied for user 'root'@'localhost' (using password: YES)
+Warning: Unable to load '/usr/share/zoneinfo/leap-seconds.list' as time zone. Skipping it.
+2019-06-17  9:34:14 13 [Warning] Access denied for user 'root'@'localhost' (using password: YES)
+2019-06-17  9:34:24 14 [Warning] Access denied for user 'root'@'localhost' (using password: YES)
+2019-06-17  9:34:34 15 [Warning] Access denied for user 'root'@'localhost' (using password: YES)
+
+2019-06-17  9:34:36 0 [Note] mysqld (initiated by: unknown): Normal shutdown
+2019-06-17  9:34:36 0 [Note] WSREP: Stop replication
+2019-06-17  9:34:36 0 [Note] WSREP: Closing send monitor...
+2019-06-17  9:34:36 0 [Note] WSREP: Closed send monitor.
+2019-06-17  9:34:36 0 [Note] WSREP: gcomm: terminating thread
+2019-06-17  9:34:36 0 [Note] WSREP: gcomm: joining thread
+2019-06-17  9:34:36 0 [Note] WSREP: gcomm: closing backend
+2019-06-17  9:34:36 0 [Note] WSREP: view((empty))
+2019-06-17  9:34:36 0 [Note] WSREP: gcomm: closed
+2019-06-17  9:34:36 0 [Note] WSREP: Received self-leave message.
+2019-06-17  9:34:36 0 [Note] WSREP: Flow-control interval: [0, 0]
+2019-06-17  9:34:36 0 [Note] WSREP: Trying to continue unpaused monitor
+2019-06-17  9:34:36 0 [Note] WSREP: Received SELF-LEAVE. Closing connection.
+2019-06-17  9:34:36 0 [Note] WSREP: Shifting SYNCED -> CLOSED (TO: 7191)
+2019-06-17  9:34:36 0 [Note] WSREP: RECV thread exiting 0: Success
+2019-06-17  9:34:36 2 [Note] WSREP: New cluster view: global state: 03f79507-90e3-11e9-b74f-ef7c2b1d0325:7191, view# -1: non-Primary, number of nodes: 0, my index: -1, protocol version 3
+2019-06-17  9:34:36 2 [Note] WSREP: wsrep_notify_cmd is not defined, skipping notification.
+2019-06-17  9:34:36 0 [Note] WSREP: recv_thread() joined.
+2019-06-17  9:34:36 0 [Note] WSREP: Closing replication queue.
+2019-06-17  9:34:36 0 [Note] WSREP: Closing slave action queue.
+2019-06-17  9:34:36 2 [Note] WSREP: applier thread exiting (code:0)
+2019-06-17  9:34:38 1 [Note] WSREP: rollbacker thread exiting
+2019-06-17  9:34:38 0 [Note] Event Scheduler: Purging the queue. 0 events
+2019-06-17  9:34:38 0 [Note] InnoDB: FTS optimize thread exiting.
+2019-06-17  9:34:38 0 [Note] WSREP: dtor state: CLOSED
+2019-06-17  9:34:38 0 [Note] WSREP: mon: entered 7191 oooe fraction 0 oool fraction 0
+2019-06-17  9:34:38 0 [Note] WSREP: mon: entered 7191 oooe fraction 0 oool fraction 0
+2019-06-17  9:34:38 0 [Note] WSREP: mon: entered 7250 oooe fraction 0 oool fraction 0
+2019-06-17  9:34:38 0 [Note] WSREP: cert index usage at exit 0
+2019-06-17  9:34:38 0 [Note] WSREP: cert trx map usage at exit 24
+2019-06-17  9:34:38 0 [Note] WSREP: deps set usage at exit 0
+2019-06-17  9:34:38 0 [Note] WSREP: avg deps dist 1
+2019-06-17  9:34:38 0 [Note] WSREP: avg cert interval 0
+2019-06-17  9:34:38 0 [Note] WSREP: cert index size 6
+2019-06-17  9:34:38 0 [Note] WSREP: Service thread queue flushed.
+2019-06-17  9:34:38 0 [Note] WSREP: wsdb trx map usage 0 conn query map usage 0
+2019-06-17  9:34:38 0 [Note] WSREP: MemPool(LocalTrxHandle): hit ratio: 0.982061, misses: 129, in use: 0, in pool: 129
+2019-06-17  9:34:38 0 [Note] WSREP: MemPool(SlaveTrxHandle): hit ratio: 0, misses: 0, in use: 0, in pool: 0
+2019-06-17  9:34:38 0 [Note] WSREP: Shifting CLOSED -> DESTROYED (TO: 7191)
+2019-06-17  9:34:38 0 [Note] WSREP: Flushing memory map to disk...
+2019-06-17  9:34:38 0 [Note] InnoDB: Starting shutdown...
+2019-06-17  9:34:38 0 [Note] InnoDB: Dumping buffer pool(s) to /var/lib/mysql/ib_buffer_pool
+2019-06-17  9:34:38 0 [Note] InnoDB: Buffer pool(s) dump completed at 190617  9:34:38
+2019-06-17  9:34:39 0 [Note] InnoDB: Shutdown completed; log sequence number 2795053; transaction id 24
+2019-06-17  9:34:39 0 [Note] InnoDB: Removed temporary tablespace data file: "ibtmp1"
+2019-06-17  9:34:39 0 [Note] mysqld: Shutdown complete
+
+
+MySQL init process done. Ready for start up.
+
+2019-06-17  9:34:39 0 [Note] mysqld (mysqld 10.3.15-MariaDB-1:10.3.15+maria~bionic) starting as process 1 ...
+2019-06-17  9:34:39 0 [Note] WSREP: Read nil XID from storage engines, skipping position init
+2019-06-17  9:34:39 0 [Note] WSREP: wsrep_load(): loading provider library '/usr/lib/galera/libgalera_smm.so'
+2019-06-17  9:34:39 0 [Note] WSREP: wsrep_load(): Galera 25.3.26(r3857) by Codership Oy <info@codership.com> loaded successfully.
+2019-06-17  9:34:39 0 [Note] WSREP: CRC-32C: using hardware acceleration.
+2019-06-17  9:34:39 0 [Note] WSREP: Found saved state: 03f79507-90e3-11e9-b74f-ef7c2b1d0325:7191, safe_to_bootstrap: 1
+2019-06-17  9:34:39 0 [Note] WSREP: Passing config to GCS: base_dir = /var/lib/mysql/; base_host = mysql-0.galera.default.svc.cluster.local; base_port = 4567; cert.log_conflicts = no; cert.optimistic_pa = yes; debug = no; evs.auto_evict = 0; evs.delay_margin = PT1S; evs.delayed_keep_period = PT30S; evs.inactive_check_period = PT0.5S; evs.inactive_timeout = PT15S; evs.join_retrans_period = PT1S; evs.max_install_timeouts = 3; evs.send_window = 4; evs.stats_report_period = PT1M; evs.suspect_timeout = PT5S; evs.user_send_window = 2; evs.view_forget_timeout = PT24H; gcache.dir = /var/lib/mysql/; gcache.keep_pages_size = 0; gcache.mem_size = 0; gcache.name = /var/lib/mysql//galera.cache; gcache.page_size = 128M; gcache.recover = no; gcache.size = 128M; gcomm.thread_prio = ; gcs.fc_debug = 0; gcs.fc_factor = 1.0; gcs.fc_limit = 16; gcs.fc_master_slave = no; gcs.max_packet_size = 64500; gcs.max_throttle = 0.25; gcs.recv_q_hard_limit = 9223372036854775807; gcs.recv_q_soft_limit = 0.25; gcs.sync_donor = no; gmcast.segment = 0; gmcast.version = 0;
+2019-06-17  9:34:39 0 [Note] WSREP: GCache history reset: 03f79507-90e3-11e9-b74f-ef7c2b1d0325:0 -> 03f79507-90e3-11e9-b74f-ef7c2b1d0325:7191
+2019-06-17  9:34:39 0 [Note] WSREP: Assign initial position for certification: 7191, protocol version: -1
+2019-06-17  9:34:39 0 [Note] WSREP: wsrep_sst_grab()
+2019-06-17  9:34:39 0 [Note] WSREP: Start replication
+2019-06-17  9:34:39 0 [Note] WSREP: Setting initial position to 03f79507-90e3-11e9-b74f-ef7c2b1d0325:7191
+2019-06-17  9:34:39 0 [Note] WSREP: protonet asio version 0
+2019-06-17  9:34:39 0 [Note] WSREP: Using CRC-32C for message checksums.
+2019-06-17  9:34:39 0 [Note] WSREP: backend: asio
+2019-06-17  9:34:39 0 [Note] WSREP: gcomm thread scheduling priority set to other:0 
+2019-06-17  9:34:39 0 [Warning] WSREP: access file(/var/lib/mysql//gvwstate.dat) failed(No such file or directory)
+2019-06-17  9:34:39 0 [Note] WSREP: restore pc from disk failed
+2019-06-17  9:34:39 0 [Note] WSREP: GMCast version 0
+2019-06-17  9:34:39 0 [Note] WSREP: (20b2dc3d, 'tcp://0.0.0.0:4567') listening at tcp://0.0.0.0:4567
+2019-06-17  9:34:39 0 [Note] WSREP: (20b2dc3d, 'tcp://0.0.0.0:4567') multicast: , ttl: 1
+2019-06-17  9:34:39 0 [Note] WSREP: EVS version 0
+2019-06-17  9:34:39 0 [Note] WSREP: gcomm: connecting to group 'mysql', peer ''
+2019-06-17  9:34:39 0 [Note] WSREP: start_prim is enabled, turn off pc_recovery
+2019-06-17  9:34:39 0 [Note] WSREP: Node 20b2dc3d state prim
+2019-06-17  9:34:39 0 [Note] WSREP: view(view_id(PRIM,20b2dc3d,1) memb {
+	20b2dc3d,0
+} joined {
+} left {
+} partitioned {
+})
+2019-06-17  9:34:39 0 [Note] WSREP: save pc into disk
+2019-06-17  9:34:39 0 [Note] WSREP: gcomm: connected
+2019-06-17  9:34:39 0 [Note] WSREP: Changing maximum packet size to 64500, resulting msg size: 32636
+2019-06-17  9:34:39 0 [Note] WSREP: Shifting CLOSED -> OPEN (TO: 0)
+2019-06-17  9:34:39 0 [Note] WSREP: Opened channel 'mysql'
+2019-06-17  9:34:39 0 [Note] WSREP: New COMPONENT: primary = yes, bootstrap = no, my_idx = 0, memb_num = 1
+2019-06-17  9:34:39 0 [Note] WSREP: Waiting for SST to complete.
+2019-06-17  9:34:39 0 [Note] WSREP: STATE_EXCHANGE: sent state UUID: 20b37433-90e3-11e9-a242-82ff1979c6d9
+2019-06-17  9:34:39 0 [Note] WSREP: STATE EXCHANGE: sent state msg: 20b37433-90e3-11e9-a242-82ff1979c6d9
+2019-06-17  9:34:39 0 [Note] WSREP: STATE EXCHANGE: got state msg: 20b37433-90e3-11e9-a242-82ff1979c6d9 from 0 (mysql-0)
+2019-06-17  9:34:39 0 [Note] WSREP: Quorum results:
+	version    = 4,
+	component  = PRIMARY,
+	conf_id    = 0,
+	members    = 1/1 (joined/total),
+	act_id     = 7191,
+	last_appl. = -1,
+	protocols  = 0/9/3 (gcs/repl/appl),
+	group UUID = 03f79507-90e3-11e9-b74f-ef7c2b1d0325
+2019-06-17  9:34:39 0 [Note] WSREP: Flow-control interval: [16, 16]
+2019-06-17  9:34:39 0 [Note] WSREP: Trying to continue unpaused monitor
+2019-06-17  9:34:39 0 [Note] WSREP: Restored state OPEN -> JOINED (7191)
+2019-06-17  9:34:39 0 [Note] WSREP: Member 0.0 (mysql-0) synced with group.
+2019-06-17  9:34:39 0 [Note] WSREP: Shifting JOINED -> SYNCED (TO: 7191)
+2019-06-17  9:34:39 2 [Note] WSREP: New cluster view: global state: 03f79507-90e3-11e9-b74f-ef7c2b1d0325:7191, view# 1: Primary, number of nodes: 1, my index: 0, protocol version 3
+2019-06-17  9:34:39 0 [Note] WSREP: SST complete, seqno: 7191
+2019-06-17  9:34:39 0 [Note] InnoDB: Using Linux native AIO
+2019-06-17  9:34:39 0 [Note] InnoDB: Mutexes and rw_locks use GCC atomic builtins
+2019-06-17  9:34:39 0 [Note] InnoDB: Uses event mutexes
+2019-06-17  9:34:39 0 [Note] InnoDB: Compressed tables use zlib 1.2.11
+2019-06-17  9:34:39 0 [Note] InnoDB: Number of pools: 1
+2019-06-17  9:34:39 0 [Note] InnoDB: Using SSE2 crc32 instructions
+2019-06-17  9:34:39 0 [Note] InnoDB: Initializing buffer pool, total size = 256M, instances = 1, chunk size = 128M
+2019-06-17  9:34:39 0 [Note] InnoDB: Completed initialization of buffer pool
+2019-06-17  9:34:39 0 [Note] InnoDB: If the mysqld execution user is authorized, page cleaner thread priority can be changed. See the man page of setpriority().
+2019-06-17  9:34:39 0 [Note] InnoDB: 128 out of 128 rollback segments are active.
+2019-06-17  9:34:39 0 [Note] InnoDB: Creating shared tablespace for temporary tables
+2019-06-17  9:34:39 0 [Note] InnoDB: Setting file './ibtmp1' size to 12 MB. Physically writing the file full; Please wait ...
+2019-06-17  9:34:39 0 [Note] InnoDB: File './ibtmp1' size is now 12 MB.
+2019-06-17  9:34:39 0 [Note] InnoDB: 10.3.15 started; log sequence number 2795053; transaction id 21
+2019-06-17  9:34:39 0 [Note] InnoDB: Loading buffer pool(s) from /var/lib/mysql/ib_buffer_pool
+2019-06-17  9:34:39 0 [Note] Plugin 'FEEDBACK' is disabled.
+2019-06-17  9:34:39 0 [Note] Server socket created on IP: '0.0.0.0'.
+2019-06-17  9:34:39 0 [Note] InnoDB: Buffer pool(s) load completed at 190617  9:34:39
+2019-06-17  9:34:39 2 [Note] WSREP: wsrep_notify_cmd is not defined, skipping notification.
+2019-06-17  9:34:39 0 [Note] Reading of all Master_info entries succeded
+2019-06-17  9:34:39 2 [Note] WSREP: REPL Protocols: 9 (4, 2)
+2019-06-17  9:34:39 2 [Note] WSREP: Assign initial position for certification: 7191, protocol version: 4
+2019-06-17  9:34:39 0 [Note] Added new Master_info '' to hash table
+2019-06-17  9:34:39 0 [Note] WSREP: Service thread queue flushed.
+2019-06-17  9:34:39 0 [Note] mysqld: ready for connections.
+Version: '10.3.15-MariaDB-1:10.3.15+maria~bionic'  socket: '/var/run/mysqld/mysqld.sock'  port: 3306  mariadb.org binary distribution
+2019-06-17  9:34:39 2 [Note] WSREP: GCache history reset: 03f79507-90e3-11e9-b74f-ef7c2b1d0325:0 -> 03f79507-90e3-11e9-b74f-ef7c2b1d0325:7191
+2019-06-17  9:34:39 2 [Note] WSREP: Synchronized with group, ready for connections
+2019-06-17  9:34:39 2 [Note] WSREP: wsrep_notify_cmd is not defined, skipping notification.
+2019-06-17  9:34:44 10 [ERROR] Invalid (old?) table or database name 'lost+found'
+2019-06-17  9:34:54 11 [ERROR] Invalid (old?) table or database name 'lost+found'
+2019-06-17  9:34:59 0 [Note] WSREP: (20b2dc3d, 'tcp://0.0.0.0:4567') connection established to 2cbead71 tcp://10.1.88.0:4567
+2019-06-17  9:34:59 0 [Note] WSREP: (20b2dc3d, 'tcp://0.0.0.0:4567') turning message relay requesting on, nonlive peers: 
+2019-06-17  9:34:59 0 [Note] WSREP: declaring 2cbead71 at tcp://10.1.88.0:4567 stable
+2019-06-17  9:34:59 0 [Note] WSREP: Node 20b2dc3d state prim
+2019-06-17  9:34:59 0 [Note] WSREP: view(view_id(PRIM,20b2dc3d,2) memb {
+	20b2dc3d,0
+	2cbead71,0
+} joined {
+} left {
+} partitioned {
+})
+2019-06-17  9:34:59 0 [Note] WSREP: save pc into disk
+2019-06-17  9:34:59 0 [Note] WSREP: New COMPONENT: primary = yes, bootstrap = no, my_idx = 0, memb_num = 2
+2019-06-17  9:34:59 0 [Note] WSREP: STATE_EXCHANGE: sent state UUID: 2d0a375d-90e3-11e9-bebe-37b2b63ecd2d
+2019-06-17  9:34:59 0 [Note] WSREP: STATE EXCHANGE: sent state msg: 2d0a375d-90e3-11e9-bebe-37b2b63ecd2d
+2019-06-17  9:34:59 0 [Note] WSREP: STATE EXCHANGE: got state msg: 2d0a375d-90e3-11e9-bebe-37b2b63ecd2d from 0 (mysql-0)
+2019-06-17  9:35:00 0 [Note] WSREP: STATE EXCHANGE: got state msg: 2d0a375d-90e3-11e9-bebe-37b2b63ecd2d from 1 (mysql-1)
+2019-06-17  9:35:00 0 [Note] WSREP: Quorum results:
+	version    = 4,
+	component  = PRIMARY,
+	conf_id    = 1,
+	members    = 1/2 (joined/total),
+	act_id     = 7191,
+	last_appl. = 0,
+	protocols  = 0/9/3 (gcs/repl/appl),
+	group UUID = 03f79507-90e3-11e9-b74f-ef7c2b1d0325
+2019-06-17  9:35:00 0 [Note] WSREP: Flow-control interval: [23, 23]
+2019-06-17  9:35:00 0 [Note] WSREP: Trying to continue unpaused monitor
+2019-06-17  9:35:00 2 [Note] WSREP: New cluster view: global state: 03f79507-90e3-11e9-b74f-ef7c2b1d0325:7191, view# 2: Primary, number of nodes: 2, my index: 0, protocol version 3
+2019-06-17  9:35:00 2 [Note] WSREP: wsrep_notify_cmd is not defined, skipping notification.
+2019-06-17  9:35:00 2 [Note] WSREP: REPL Protocols: 9 (4, 2)
+2019-06-17  9:35:00 2 [Note] WSREP: Assign initial position for certification: 7191, protocol version: 4
+2019-06-17  9:35:00 0 [Note] WSREP: Service thread queue flushed.
+2019-06-17  9:35:00 0 [Note] WSREP: Member 1.0 (mysql-1) requested state transfer from '*any*'. Selected 0.0 (mysql-0)(SYNCED) as donor.
+2019-06-17  9:35:00 0 [Note] WSREP: Shifting SYNCED -> DONOR/DESYNCED (TO: 7191)
+2019-06-17  9:35:00 2 [Note] WSREP: wsrep_notify_cmd is not defined, skipping notification.
+2019-06-17  9:35:00 0 [Note] WSREP: Running: 'wsrep_sst_rsync --role 'donor' --address 'mysql-1.galera.default.svc.cluster.local:4444/rsync_sst' --socket '/var/run/mysqld/mysqld.sock' --datadir '/var/lib/mysql/'     '' --gtid '03f79507-90e3-11e9-b74f-ef7c2b1d0325:7191' --gtid-domain-id '0''
+2019-06-17  9:35:00 2 [Note] WSREP: sst_donor_thread signaled with 0
+2019-06-17  9:35:00 0 [Note] WSREP: Flushing tables for SST...
+2019-06-17  9:35:00 0 [Note] WSREP: Provider paused at 03f79507-90e3-11e9-b74f-ef7c2b1d0325:7191 (5)
+2019-06-17  9:35:00 0 [Note] WSREP: Tables flushed.
+2019-06-17  9:35:02 0 [Note] WSREP: resuming provider at 5
+2019-06-17  9:35:02 0 [Note] WSREP: Provider resumed.
+2019-06-17  9:35:02 0 [Note] WSREP: 0.0 (mysql-0): State transfer to 1.0 (mysql-1) complete.
+2019-06-17  9:35:02 0 [Note] WSREP: Shifting DONOR/DESYNCED -> JOINED (TO: 7191)
+2019-06-17  9:35:02 0 [Note] WSREP: Member 0.0 (mysql-0) synced with group.
+2019-06-17  9:35:02 0 [Note] WSREP: Shifting JOINED -> SYNCED (TO: 7191)
+2019-06-17  9:35:02 2 [Note] WSREP: Synchronized with group, ready for connections
+2019-06-17  9:35:02 2 [Note] WSREP: wsrep_notify_cmd is not defined, skipping notification.
+2019-06-17  9:35:02 0 [Note] WSREP: (20b2dc3d, 'tcp://0.0.0.0:4567') turning message relay requesting off
+2019-06-17  9:35:04 0 [Note] WSREP: 1.0 (mysql-1): State transfer from 0.0 (mysql-0) complete.
+2019-06-17  9:35:04 0 [Note] WSREP: Member 1.0 (mysql-1) synced with group.
+2019-06-17  9:35:04 12 [ERROR] Invalid (old?) table or database name 'lost+found'
+2019-06-17  9:35:14 13 [ERROR] Invalid (old?) table or database name 'lost+found'
+2019-06-17  9:35:24 14 [ERROR] Invalid (old?) table or database name 'lost+found'
+2019-06-17  9:35:34 15 [ERROR] Invalid (old?) table or database name 'lost+found'
+2019-06-17  9:35:40 0 [Note] WSREP: (20b2dc3d, 'tcp://0.0.0.0:4567') turning message relay requesting on, nonlive peers: tcp://10.1.59.0:4567 
+2019-06-17  9:35:40 0 [Note] WSREP: (20b2dc3d, 'tcp://0.0.0.0:4567') connection established to 455482a0 tcp://10.1.59.0:4567
+2019-06-17  9:35:42 0 [Note] WSREP: declaring 2cbead71 at tcp://10.1.88.0:4567 stable
+2019-06-17  9:35:42 0 [Note] WSREP: declaring 455482a0 at tcp://10.1.59.0:4567 stable
+2019-06-17  9:35:43 0 [Note] WSREP: Node 20b2dc3d state prim
+2019-06-17  9:35:43 0 [Note] WSREP: view(view_id(PRIM,20b2dc3d,3) memb {
+	20b2dc3d,0
+	2cbead71,0
+	455482a0,0
+} joined {
+} left {
+} partitioned {
+})
+2019-06-17  9:35:43 0 [Note] WSREP: save pc into disk
+2019-06-17  9:35:43 0 [Note] WSREP: New COMPONENT: primary = yes, bootstrap = no, my_idx = 0, memb_num = 3
+2019-06-17  9:35:43 0 [Note] WSREP: STATE_EXCHANGE: sent state UUID: 46d263e3-90e3-11e9-9e14-86f19ff3cbfd
+2019-06-17  9:35:43 0 [Note] WSREP: STATE EXCHANGE: sent state msg: 46d263e3-90e3-11e9-9e14-86f19ff3cbfd
+2019-06-17  9:35:43 0 [Note] WSREP: STATE EXCHANGE: got state msg: 46d263e3-90e3-11e9-9e14-86f19ff3cbfd from 0 (mysql-0)
+2019-06-17  9:35:43 0 [Note] WSREP: STATE EXCHANGE: got state msg: 46d263e3-90e3-11e9-9e14-86f19ff3cbfd from 1 (mysql-1)
+2019-06-17  9:35:43 0 [Note] WSREP: STATE EXCHANGE: got state msg: 46d263e3-90e3-11e9-9e14-86f19ff3cbfd from 2 (mysql-2)
+2019-06-17  9:35:43 0 [Note] WSREP: Quorum results:
+	version    = 4,
+	component  = PRIMARY,
+	conf_id    = 2,
+	members    = 2/3 (joined/total),
+	act_id     = 7191,
+	last_appl. = 0,
+	protocols  = 0/9/3 (gcs/repl/appl),
+	group UUID = 03f79507-90e3-11e9-b74f-ef7c2b1d0325
+2019-06-17  9:35:43 0 [Note] WSREP: Flow-control interval: [28, 28]
+2019-06-17  9:35:43 0 [Note] WSREP: Trying to continue unpaused monitor
+2019-06-17  9:35:43 2 [Note] WSREP: New cluster view: global state: 03f79507-90e3-11e9-b74f-ef7c2b1d0325:7191, view# 3: Primary, number of nodes: 3, my index: 0, protocol version 3
+2019-06-17  9:35:43 2 [Note] WSREP: wsrep_notify_cmd is not defined, skipping notification.
+2019-06-17  9:35:43 2 [Note] WSREP: REPL Protocols: 9 (4, 2)
+2019-06-17  9:35:43 2 [Note] WSREP: Assign initial position for certification: 7191, protocol version: 4
+2019-06-17  9:35:43 0 [Note] WSREP: Service thread queue flushed.
+2019-06-17  9:35:43 0 [Note] WSREP: (20b2dc3d, 'tcp://0.0.0.0:4567') turning message relay requesting off
+2019-06-17  9:35:44 0 [Note] WSREP: Member 2.0 (mysql-2) requested state transfer from '*any*'. Selected 0.0 (mysql-0)(SYNCED) as donor.
+2019-06-17  9:35:44 0 [Note] WSREP: Shifting SYNCED -> DONOR/DESYNCED (TO: 7191)
+2019-06-17  9:35:44 2 [Note] WSREP: wsrep_notify_cmd is not defined, skipping notification.
+2019-06-17  9:35:44 0 [Note] WSREP: Running: 'wsrep_sst_rsync --role 'donor' --address 'mysql-2.galera.default.svc.cluster.local:4444/rsync_sst' --socket '/var/run/mysqld/mysqld.sock' --datadir '/var/lib/mysql/'     '' --gtid '03f79507-90e3-11e9-b74f-ef7c2b1d0325:7191' --gtid-domain-id '0''
+2019-06-17  9:35:44 2 [Note] WSREP: sst_donor_thread signaled with 0
+2019-06-17  9:35:44 0 [Note] WSREP: Flushing tables for SST...
+2019-06-17  9:35:44 0 [Note] WSREP: Provider paused at 03f79507-90e3-11e9-b74f-ef7c2b1d0325:7191 (10)
+2019-06-17  9:35:44 0 [Note] WSREP: Tables flushed.
+2019-06-17  9:35:44 16 [ERROR] Invalid (old?) table or database name 'lost+found'
+2019-06-17  9:35:45 0 [Note] WSREP: resuming provider at 10
+2019-06-17  9:35:45 0 [Note] WSREP: Provider resumed.
+2019-06-17  9:35:45 0 [Note] WSREP: 0.0 (mysql-0): State transfer to 2.0 (mysql-2) complete.
+2019-06-17  9:35:45 0 [Note] WSREP: Shifting DONOR/DESYNCED -> JOINED (TO: 7191)
+2019-06-17  9:35:45 0 [Note] WSREP: Member 0.0 (mysql-0) synced with group.
+2019-06-17  9:35:45 0 [Note] WSREP: Shifting JOINED -> SYNCED (TO: 7191)
+2019-06-17  9:35:45 2 [Note] WSREP: Synchronized with group, ready for connections
+2019-06-17  9:35:45 2 [Note] WSREP: wsrep_notify_cmd is not defined, skipping notification.
+2019-06-17  9:35:47 0 [Note] WSREP: 2.0 (mysql-2): State transfer from 0.0 (mysql-0) complete.
+2019-06-17  9:35:47 0 [Note] WSREP: Member 2.0 (mysql-2) synced with group.
+2019-06-17  9:35:54 17 [ERROR] Invalid (old?) table or database name 'lost+found'
+2019-06-17  9:36:04 18 [ERROR] Invalid (old?) table or database name 'lost+found'

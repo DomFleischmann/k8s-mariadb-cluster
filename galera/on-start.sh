@@ -1,4 +1,5 @@
 #! /bin/bash
+set -x
 
 GALERA_CONF="${GALERA_CONF:-"/etc/mysql/conf.d/galera.cnf"}"
 

@@ -75,7 +75,7 @@ spec:
           mountPath: /etc/mysql/conf.d
       containers:
       - name: mysql
-        image: ausov/k8s-mariadb-cluster
+        image: domfleischmann/galera-mariadb:latestgalera
         ports:
         - containerPort: 3306
           name: mysql

@@ -1,10 +1,10 @@
 #!/bin/bash
-set -eo pipefail
-shopt -s nullglob
+#set -eo pipefail
+#shopt -s nullglob
 
-if [ "$TRACE" = "1" ]; then
+#if [ "$TRACE" = "1" ]; then
 	set -x
-fi
+#fi
 
 # if command starts with an option, prepend mysqld
 if [ "${1:0:1}" = '-' ]; then
@@ -65,12 +65,63 @@ if [ "$1" = 'mysqld' -a -z "$wantHelp" -a "$(id -u)" = '0' ]; then
 	_check_config "$@"
 	export DATADIR="$(_datadir "$@")"
 	mkdir -p "$DATADIR"
+	
+	mkdir -p /etc/mysql/conf.d
 
-	# Run Galera auto-discovery on Kubernetes
-	if hash peer-finder 2>/dev/null; then
-		peer-finder -on-start=/opt/galera/on-start.sh -service="${GALERA_SERVICE:-galera}"
+	cp /etc/mysqlconfiguration/* /etc/mysql/conf.d
+
+	GALERA_CONF="${GALERA_CONF:-"/etc/mysql/conf.d/galera.cnf"}"
+	
+	if ! [ -f "${GALERA_CONF}" ]; then 
+	    cp /opt/galera/galera.cnf "${GALERA_CONF}"
 	fi
+	
+	function join {
+	    local IFS="$1"; shift; echo "$*";
+	}
 
+	HOSTNAME=$(hostname)
+	# Parse out cluster name, formatted as: petset_name-index
+	IFS='-' read -ra ADDR <<< "$(hostname)"
+	CLUSTER_NAME="${ADDR[0]}"
+	
+	counter=0
+	i=0
+	while (( "$counter" != "3" )); do
+	    LINE=`nslookup $APPLICATION_NAME-$i.$APPLICATION_NAME-endpoints | grep Name | awk '{print $2}'`
+	    if [[ "${LINE}" == *"${HOSTNAME}"* ]]; then
+	        MY_NAME=$LINE
+	    elif [[ "${LINE}" == "" ]]; then
+		counter=$((counter + 1))
+	    else	
+	        PEERS=("${PEERS[@]}" $LINE)
+	    fi
+
+	    i=$((i + 1))
+	done
+	
+	echo $PEERS
+	echo $MY_NAME
+	
+	if [ "${#PEERS[@]}" = 0 ]; then
+	    export WSREP_CLUSTER_ADDRESS=""
+	else
+	    export WSREP_CLUSTER_ADDRESS=$(join , "${PEERS[@]}")
+	fi
+	sed -i -e "s|^wsrep_node_address[[:space:]]*=.*$|wsrep_node_address=${MY_NAME}|" "${GALERA_CONF}"
+	sed -i -e "s|^wsrep_cluster_name[[:space:]]*=.*$|wsrep_cluster_name=${CLUSTER_NAME}|" "${GALERA_CONF}"
+	sed -i -e "s|^wsrep_cluster_address[[:space:]]*=.*$|wsrep_cluster_address=gcomm://${WSREP_CLUSTER_ADDRESS}|" "${GALERA_CONF}"
+	
+	# don't need a restart, we're just writing the conf in case there's an
+	# unexpected restart on the node.
+	
+	if [ -n "$WSREP_CLUSTER_ADDRESS" ]; then
+	    mkdir -p "$DATADIR/mysql"
+	    echo "*** [Galera] Joining cluster: $WSREP_CLUSTER_ADDRESS"     
+	else
+	    echo "*** [Galera] Starting new cluster!"
+	fi
+	
 	chown -R mysql:mysql "$DATADIR"
 	exec gosu mysql "$BASH_SOURCE" "$@"
 fi
@@ -128,15 +179,11 @@ if [ "$1" = 'mysqld' -a -z "$wantHelp" ]; then
 			exit 1
 		fi
 
-		if [ -z "$MYSQL_INITDB_SKIP_TZINFO" ]; then
-			# sed is for https://bugs.mysql.com/bug.php?id=20545
-			mysql_tzinfo_to_sql /usr/share/zoneinfo | sed 's/Local time zone must be set--see zic manual page/FCTY/' | "${mysql[@]}" mysql
-		fi
-
 		if [ ! -z "$MYSQL_RANDOM_ROOT_PASSWORD" ]; then
 			export MYSQL_ROOT_PASSWORD="$(pwgen -1 32)"
 			echo "GENERATED ROOT PASSWORD: $MYSQL_ROOT_PASSWORD"
 		fi
+
 		"${mysql[@]}" <<-EOSQL
 			-- What's done in this file shouldn't be replicated
 			--  or products like mysql-fabric won't work
@@ -153,6 +200,12 @@ if [ "$1" = 'mysqld' -a -z "$wantHelp" ]; then
 			mysql+=( -p"${MYSQL_ROOT_PASSWORD}" )
 		fi
 
+		if [ -z "$MYSQL_INITDB_SKIP_TZINFO" ]; then
+			# sed is for https://bugs.mysql.com/bug.php?id=20545
+			mysql_tzinfo_to_sql /usr/share/zoneinfo | sed 's/Local time zone must be set--see zic manual page/FCTY/' | "${mysql[@]}" mysql
+		fi
+
+		
 		file_env 'MYSQL_DATABASE'
 		if [ "$MYSQL_DATABASE" ]; then
 			echo "CREATE DATABASE IF NOT EXISTS \`$MYSQL_DATABASE\` ;" | "${mysql[@]}"
@@ -187,7 +240,9 @@ if [ "$1" = 'mysqld' -a -z "$wantHelp" ]; then
 			exit 1
 		fi
 
+
 		echo
+
 		echo 'MySQL init process done. Ready for start up.'
 		echo
 	fi

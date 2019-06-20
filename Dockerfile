@@ -1,7 +1,7 @@
 FROM mariadb:10.3
 
 RUN set -x && \
-    apt-get update && apt-get install -y --no-install-recommends ca-certificates wget && \
+    apt-get update && apt-get install -y --no-install-recommends ca-certificates wget dnsutils iputils-ping netcat && \
     rm -rf /var/lib/apt/lists/* && \
     \
     wget -O /usr/local/bin/peer-finder https://storage.googleapis.com/kubernetes-release/pets/peer-finder && \
