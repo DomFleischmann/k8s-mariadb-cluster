@@ -1,10 +1,8 @@
 #!/bin/bash
-#set -eo pipefail
-#shopt -s nullglob
 
-#if [ "$TRACE" = "1" ]; then
+if [ "$TRACE" = "1" ]; then
 	set -x
-#fi
+fi
 
 # if command starts with an option, prepend mysqld
 if [ "${1:0:1}" = '-' ]; then
@@ -196,15 +194,11 @@ if [ "$1" = 'mysqld' -a -z "$wantHelp" ]; then
 			FLUSH PRIVILEGES ;
 		EOSQL
 
+                echo "${mysql[@]}"
+
 		if [ ! -z "$MYSQL_ROOT_PASSWORD" ]; then
 			mysql+=( -p"${MYSQL_ROOT_PASSWORD}" )
 		fi
-
-		if [ -z "$MYSQL_INITDB_SKIP_TZINFO" ]; then
-			# sed is for https://bugs.mysql.com/bug.php?id=20545
-			mysql_tzinfo_to_sql /usr/share/zoneinfo | sed 's/Local time zone must be set--see zic manual page/FCTY/' | "${mysql[@]}" mysql
-		fi
-
 		
 		file_env 'MYSQL_DATABASE'
 		if [ "$MYSQL_DATABASE" ]; then
